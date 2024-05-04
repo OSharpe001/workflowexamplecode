@@ -12,7 +12,8 @@ resource "google_storage_bucket" "raw" {
 
 terraform {
     backend "gcs" { 
-      bucket  = Lizzo_bucket
+      bucket  = "Lizzo_bucket"
+      credentials = "lizzo.json"
       prefix  = "prod"
     }
 }
@@ -24,7 +25,7 @@ provider "google" {
 
 locals {
     labels = {
-        "data-project" = var.data-project
+        "data-project" = var.data_project
     }
 }
 
